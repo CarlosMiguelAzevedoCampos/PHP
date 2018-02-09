@@ -35,7 +35,7 @@ class Edit
 
     protected function Edit($id, $nome, $idade){	
 		$response["resultado_do_editar"] = array(); //Irá me permitir por exemplo saber se algo ficou editado
-		if ($query = $this->db->prepare('INSERT INTO bd_table set nome=?, idade=? where id=?')) {
+		if ($query = $this->db->prepare('UPDATE bd_table set nome=?, idade=? where id=?')) {
 			$query->bind_param("sii", $nome, $idade, $id);
 			if ($query->execute()) { // se executou irá colocar no resultado_do_editar, done
                $response["resultado_do_editar"] = "done";
